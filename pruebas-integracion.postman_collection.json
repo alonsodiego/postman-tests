@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "516733a6-f080-44e1-add4-2465a03d40b4",
+		"name": "pruebas-integracion",
+		"description": "Implementacion de una coleccion de pruebas de integracion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ListaRetenciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/beneficio/retencion/judicial/listar-retenciones?pagina=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beneficio",
+						"retencion",
+						"judicial",
+						"listar-retenciones"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Lista de retenciones"
+			},
+			"response": []
+		}
+	]
+}

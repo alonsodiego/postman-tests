@@ -1,0 +1,14 @@
+com/canvia/Entity/RetencionJudicial.class
+com/canvia/Entity/TipoMoneda.class
+com/canvia/Entity/Valor.class
+com/canvia/Entity/EntidadFinanciera.class
+com/canvia/Entity/Departamento.class
+com/canvia/Application.class
+com/canvia/Entity/Agencia.class
+com/canvia/Entity/Provincia.class
+com/canvia/Entity/Empleado.class
+com/canvia/controller/MyCustomErrorController.class
+com/canvia/controller/DummyController.class
+com/canvia/Entity/Distrito.class
+com/canvia/controller/HelloController.class
+com/canvia/Entity/TipoIdentificacion.class

@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "69f50839-613d-42c1-979b-7a4492afa823",
+		"name": "Retencion-judicial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Retenciones judiciales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a1f808b-2bb8-4da0-a529-e1d1cdbd5165",
+						"exec": [
+							"var empleadoSchema = {",
+							"    \"properties\": {",
+							"       \"id\" : { \"type\": \"integer\" },",
+							"       \"nombre\": { \"type\": \"string\" },",
+							"       \"apellido\": { \"type\": \"string\" }",
+							"    }",
+							"};",
+							"",
+							"tv4.addSchema('empleadoSchema', empleadoSchema);",
+							"",
+							"pm.test('Es valido el esquema de empleado', function() {",
+							"  pm.expect(tv4.validate(pm.response.json(), empleadoSchema)).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.ok; // equivalente a decir que valide que sea 200",
+							"    pm.response.to.be.withBody; // body tiene que exitir",
+							"    pm.response.to.be.json; // además que sea un JSON válido",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/beneficio/retencion/judicial/listar-retenciones?pagina=0&nombre=&dni=&total=false",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beneficio",
+						"retencion",
+						"judicial",
+						"listar-retenciones"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "nombre",
+							"value": ""
+						},
+						{
+							"key": "dni",
+							"value": ""
+						},
+						{
+							"key": "total",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Descarga de Retenciones Judiciales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd677d8d-6fd7-4910-9d23-db70006e9e51",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/beneficio/retencion/judicial/descargar-retencines-judiciales?fchInicial=20100101&fchFinal=20190314&estado=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beneficio",
+						"retencion",
+						"judicial",
+						"descargar-retencines-judiciales"
+					],
+					"query": [
+						{
+							"key": "fchInicial",
+							"value": "20100101"
+						},
+						{
+							"key": "fchFinal",
+							"value": "20190314"
+						},
+						{
+							"key": "estado",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Agencias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "726c755c-aae2-456e-aa0a-8439d28ddd6f",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-agencias?pagina=0&cod_agencia=&cod_sucursal=&cod_departamento&cod_ciudad",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-agencias"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "cod_agencia",
+							"value": ""
+						},
+						{
+							"key": "cod_sucursal",
+							"value": ""
+						},
+						{
+							"key": "cod_departamento",
+							"value": null
+						},
+						{
+							"key": "cod_ciudad",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Entidades Financieras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0e466a2-b66e-4e9e-94bf-65cd64baabed",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-entidades-financieras?pagina=0&cod_banco=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-entidades-financieras"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "cod_banco",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Tipo de Identificacion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f956509d-1b2f-4907-b519-691adbf47790",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-tipo-identificacion?pagina=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-tipo-identificacion"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Valores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05c0d76d-5d3a-4796-8cb7-bebe785916a5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-lista-valores?pagina=0&codigo=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-lista-valores"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "codigo",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Ciudad Provincia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec12ff3a-d20a-4313-9134-4c8d4e4ead8d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-ciudad-provincia?pagina=0&cod_departamento=&cod_ciudad=&cod_region=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-ciudad-provincia"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "cod_departamento",
+							"value": ""
+						},
+						{
+							"key": "cod_ciudad",
+							"value": ""
+						},
+						{
+							"key": "cod_region",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Departamentos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b56385f-9d23-4e6a-9788-2c18a8345411",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-depatamento?pagina=0&cod_departamento=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-depatamento"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "cod_departamento",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Distritos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f020c8c8-489e-40db-a942-a502f35e6dac",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-distrito?pagina=0&cod_departamento=&cod_ciudad=&cod_distrito=&cod_postal=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-distrito"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "cod_departamento",
+							"value": ""
+						},
+						{
+							"key": "cod_ciudad",
+							"value": ""
+						},
+						{
+							"key": "cod_distrito",
+							"value": ""
+						},
+						{
+							"key": "cod_postal",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Litar Tipo Moneda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6e965fb-e51b-4e87-b630-38ff37ac837e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/soporte/dato-general/listar-tipo-monda",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"soporte",
+						"dato-general",
+						"listar-tipo-monda"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
